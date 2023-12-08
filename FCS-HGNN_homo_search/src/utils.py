@@ -26,18 +26,6 @@ def jaccard_similarity(set1, set2):
     union = len(set1) + len(set2) - intersection
     return float(intersection) / union
 
-# def f1_score_(comm_find, comm):
-
-#     lists = [x for x in comm_find if x in comm]
-#     if len(lists) == 0:
-#         #print("f1, pre, rec", 0.0, 0.0, 0.0)
-#         return 0.0, 0.0, 0.0
-#     #pre = (len(lists)-1) * 1.0 / len(comm_find)
-#     pre = len(lists) * 1.0 / len(comm_find)
-#     rec = len(lists) * 1.0 / len(comm)
-#     f1 = 2 * pre * rec / (pre + rec)
-#     #print("f1, pre, rec", f1, pre, rec)
-#     return f1, pre, rec
 
 def f1_score_(comm_find, comm):
     common = set(comm_find) & set(comm)

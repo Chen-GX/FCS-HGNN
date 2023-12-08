@@ -117,24 +117,3 @@ def search_threshold_parallel(lc, scorelists, num_data, max_processes=20):
     s_m, f1_m, avg_len = result_max_f1  
 
     return s_m, f1_m, avg_len 
-
-
-
-# def worker(args):
-#     s_, lc, scorelists, num_data = args
-#     f1_x = sum(f1_score_(list(set(lc.bfs(q, s_, probs))), list(set(comm)))[0] for q, comm, probs in scorelists) / num_data
-#     return s_, f1_x
-
-# def search_threshold_parallel(lc, scorelists, num_data, max_processes=20):
-#     threshold_range = np.arange(0.05, 0.96, 0.005)
-#     # logger.info(mp.cpu_count())  96
-#     max_processes = min(max_processes, mp.cpu_count())  # 获取CPU的核心数
-#     pool = mp.Pool(processes=max_processes)
-
-#     results = pool.map(worker, [(s_, lc, scorelists, num_data) for s_ in threshold_range])
-
-#     s_m, f1_m = max(results, key=lambda x: x[1])
-
-#     return s_m, f1_m   # 将结果返回
-
-# search_threshold_parallel(lc, scorelists, valid_data)
